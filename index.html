@@ -12,7 +12,6 @@
 <body>
 	<button id="start">Transition</button> 
 	<button id="reset">Reset</button>
-
 	<div id="main">
 
 	</div>
@@ -44,7 +43,26 @@
 		.attr("fill", "gray");
 		
 	// Add functions for changing the data when user clicks buttons
-	// YOUR CODE HERE
+d3.select("#start").on("click", function() { 
+	svg.selectAll("circle")
+	.transition()
+	.attr("cx", function(d) { 
+		return d[2];
+})
+.attr("cy", function(d) { 
+		return d[3];
+	})
+});
+d3.select("#reset").on("click", function() { 
+	svg.selectAll("circle")
+	.transition()
+	.attr("cx", function(d) { 
+		return d[0];
+})
+.attr("cy", function(d) { 
+		return d[1];
+})
+});
 
 
 </script>
